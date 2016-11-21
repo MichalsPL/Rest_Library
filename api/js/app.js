@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
+ var endpoint = window.location+"/api/books.php";
 
     $.ajax({
-        url: "../Rest_Library/api/books.php",
+        url: endpoint,
         data: {},
         type: "GET",
         dataType: "json"
@@ -60,7 +61,7 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: "../Rest_Library/api/books.php",
+        url: endpoint,
         data: 'id=' + del,
         type: "DELETE",
         dataType: "json"
@@ -91,8 +92,7 @@ $(document).ready(function () {
 //ADD BOOK EVENT
 //////////////////////////////////////////////////
 
-$('form').on('submit',    
-function(e) {
+$('form').on('submit',function(e) {
     e.preventDefault();
     var postForm = {
         name: $('input[name=name]').val(),
@@ -101,7 +101,7 @@ function(e) {
     };
 
     $.ajax({
-        url: "../Rest_Library/api/books.php",
+        url: endpoint,
         data: postForm,
         type: "POST",
         dataType: "json"
